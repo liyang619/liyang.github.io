@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[test2]]></title>
-    <url>%2F2019%2F05%2F25%2Ftest2%2F</url>
-    <content type="text"><![CDATA[hello boys]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello Guys]]></title>
-    <url>%2F2019%2F05%2F23%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[欢迎来到李阿的Home，这是李阿表达自我的方寸之地。建设中，敬请期待]]></content>
+    <title><![CDATA[论文笔记：Loopy Neural Nets: Imitating Feedback Loops in the Human Brain]]></title>
+    <url>%2F2019%2F05%2F25%2F%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%EF%BC%9ALoopy-Neural-Nets-Imitating-Feedback-Loops-in-the-Human-Brain%2F</url>
+    <content type="text"></content>
       <categories>
-        <category>介绍</category>
+        <category>论文笔记</category>
+        <category>上科大访问</category>
       </categories>
       <tags>
-        <tag>首页</tag>
+        <tag>论文笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[HI Guys]]></title>
+    <url>%2F2019%2F05%2F25%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[写在前面互联网宛如浩瀚的宇宙一样，太广袤，但是很幸运李阿的Home这个小小的blog网站能够在广袤无垠的互联网世界与你相遇，我相信这是天大的缘分，能将我的想法、我的思考呈现在你的面前。李阿的Home仅仅只是李阿表达自己、分享自己的平台，在这里我将和你分享论文笔记、技术教程、影评乐评、日志感悟等一切李阿可能有感而发的东西。如果你觉得我的文章对你有所启发，那将是李阿的毕生荣幸，如果你觉得我的文章过于幼稚或者有所待商榷，欢迎和李阿进行交流，交换彼此的意见共同进步。李阿的Home十分欢迎大家交流意见、互换想法，在这里李阿在每篇文章的下面设置了评论区，欢迎大家在评论区发表自己的看法和见解亦或者提出你的疑问。在页面的右下角还设置了实时在线交流入口，也欢迎大家通过这个交流入口和李阿进行交流，李阿在看到的第一时间会回复你的。在文章的下方还有分享功能，欢迎大家把喜欢的文章分享到各大平台，让更多的人参与进来。同时，李阿也植入了赞赏功能，赞赏的目的不是发家致富，而是希望赢得你的支持和尊重，对原创、分享的支持和尊重，真是出于这个目的才开始了赞赏功能，希望你在觉得文章对你有所启发、解答了你的问题的时候可以多多支持李阿的Home！]]></content>
+      <categories>
+        <category>欢迎页</category>
+      </categories>
+      <tags>
+        <tag>写在前面</tag>
       </tags>
   </entry>
 </search>
