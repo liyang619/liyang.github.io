@@ -97,18 +97,18 @@
 
 
 
-<meta name="description" content="一个没有爱的程序员">
+<meta name="description" content="写在前面  这篇论文笔记将以翻译加上李阿的个人注解的形式进行。因本人水平有限，难免会有地方遗漏或者错误，请大家发现后积极评论或者点击右下角按钮与李阿实时交流。  ​">
 <meta name="keywords" content="论文笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文笔记：Loopy Neural Nets: Imitating Feedback Loops in the Human Brain">
 <meta property="og:url" content="http://liyang619.github.io/2019/05/25/论文笔记：Loopy-Neural-Nets-Imitating-Feedback-Loops-in-the-Human-Brain/index.html">
 <meta property="og:site_name" content="李阿的Home">
-<meta property="og:description" content="一个没有爱的程序员">
+<meta property="og:description" content="写在前面  这篇论文笔记将以翻译加上李阿的个人注解的形式进行。因本人水平有限，难免会有地方遗漏或者错误，请大家发现后积极评论或者点击右下角按钮与李阿实时交流。  ​">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-25T14:29:22.741Z">
+<meta property="og:updated_time" content="2019-05-25T17:17:16.037Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记：Loopy Neural Nets: Imitating Feedback Loops in the Human Brain">
-<meta name="twitter:description" content="一个没有爱的程序员">
+<meta name="twitter:description" content="写在前面  这篇论文笔记将以翻译加上李阿的个人注解的形式进行。因本人水平有限，难免会有地方遗漏或者错误，请大家发现后积极评论或者点击右下角按钮与李阿实时交流。  ​">
 
 
 
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0 字
+                  402 字
                 </span>
               
 
@@ -450,7 +450,18 @@
       
 
       
-        
+        <blockquote>
+<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1></blockquote>
+<blockquote>
+<p>这篇论文笔记将以翻译加上李阿的个人注解的形式进行。因本人水平有限，难免会有地方遗漏或者错误，请大家发现后积极评论或者点击右下角按钮与李阿实时交流。</p>
+</blockquote>
+<p>​    <a id="more"></a></p>
+<blockquote>
+<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1></blockquote>
+<blockquote>
+<p>人工神经网络旨在仿生，但是在定义上是非循环计算图。作为一个结论，人工网络中的神经元仅仅只激活一次并且没有时间动态变化。这些属性都与神经科学教给我们关于人脑连接的知识相违背，特别是在谈论物体识别时。因此，我们提出了一种模拟大脑中反馈回路的方法，这种方法通过数次展开带有回路的神经网络并研究这些网络的属性。我们比较了不同版本的回路，其中包括有对输入进行乘法或者加法的。我们证明了回路神经网络在<code>CIFAR-10数据集</code>上比拥有同等参数的深层前馈网络、以及相同网络非加环的版本表现优异，在<code>MNIST数据集</code>表现一样优异。为了进一步的理解我们的模型，我们用在回路层中使用<code>guided backprop</code>可视化神经元，证明在更高的展开层相同的滤波器表现逐渐非线性化。进一步的，我们将回路解释为注意力机制，以及证明了输入图片产生输出图片回路输出的构成很像<code>attention maps</code>.</p>
+</blockquote>
+
       
     </div>
     
@@ -585,8 +596,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -614,7 +634,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -625,7 +645,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -649,6 +669,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">2.</span> <span class="nav-text">摘要</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -669,7 +705,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019-05-25</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019-05-26</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
