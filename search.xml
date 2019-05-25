@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[test2]]></title>
+    <url>%2F2019%2F05%2F25%2Ftest2%2F</url>
+    <content type="text"><![CDATA[hello boys]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello Guys]]></title>
+    <url>%2F2019%2F05%2F23%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[欢迎来到李阿的Home，这是李阿表达自我的方寸之地。建设中，敬请期待]]></content>
+      <tags>
+        <tag>首页</tag>
+      </tags>
+  </entry>
+</search>
