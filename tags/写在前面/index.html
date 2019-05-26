@@ -618,7 +618,7 @@
   
   <script type="text/javascript">
     var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
+    var guest = 'nick,mail';
     guest = guest.split(',').filter(item=>{
       return GUEST.indexOf(item)>-1;
     });
@@ -628,7 +628,7 @@
         notify: false,
         appId: 'RsLDnxawTOzhkTw2zExmNxhQ-gzGzoHsz',
         appKey: 'DgUBvJ3vCw7KPHvWn53RjvAD',
-        placeholder: 'Just go go',
+        placeholder: '留下你精彩的评论吧!如果有必要的话请留下你的邮箱，李阿将通过邮件与您进行深入交流！',
         avatar:'mm',
         guest_info:guest,
         pageSize:'10' || 10,
@@ -1022,5 +1022,10 @@
 
   
 
+
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
 </body>
 </html>
