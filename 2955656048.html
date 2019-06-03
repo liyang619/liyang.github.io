@@ -100,14 +100,14 @@
 <meta name="description" content="写在前面 李阿将在这一章中讲解Lenet5的简易版具体实现pytorch实现和训练过程。将在下一回学习高级版实现，即自定义数据集的训练，模型保存加载，可视化等功能。">
 <meta name="keywords" content="Pytorch">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pytorch教程-第二回[Lenet5 pytorch初实现]">
+<meta property="og:title" content="Pytorch学习笔记-第二回[Lenet5 pytorch初实现]">
 <meta property="og:url" content="http://liyang619.github.io/2955656048.html">
 <meta property="og:site_name" content="李阿的Home">
 <meta property="og:description" content="写在前面 李阿将在这一章中讲解Lenet5的简易版具体实现pytorch实现和训练过程。将在下一回学习高级版实现，即自定义数据集的训练，模型保存加载，可视化等功能。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-03T03:36:00.409Z">
+<meta property="og:updated_time" content="2019-06-03T07:57:09.104Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pytorch教程-第二回[Lenet5 pytorch初实现]">
+<meta name="twitter:title" content="Pytorch学习笔记-第二回[Lenet5 pytorch初实现]">
 <meta name="twitter:description" content="写在前面 李阿将在这一章中讲解Lenet5的简易版具体实现pytorch实现和训练过程。将在下一回学习高级版实现，即自定义数据集的训练，模型保存加载，可视化等功能。">
 
 
@@ -145,7 +145,7 @@
 
 
 
-  <title>Pytorch教程-第二回[Lenet5 pytorch初实现] | 李阿的Home</title>
+  <title>Pytorch学习笔记-第二回[Lenet5 pytorch初实现] | 李阿的Home</title>
   
 
 
@@ -321,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Pytorch教程-第二回[Lenet5 pytorch初实现]</h1>
+          <h1 class="post-title" itemprop="name headline">Pytorch学习笔记-第二回[Lenet5 pytorch初实现]</h1>
         
 
         <div class="post-meta">
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.5k 字
+                  1.6k 字
                 </span>
               
 
@@ -454,6 +454,10 @@
 <p>李阿将在这一章中讲解Lenet5的<em>简易版具体实现pytorch实现和训练过程</em>。将在下一回学习高级版实现，即自定义数据集的训练，模型保存加载，可视化等功能。</p>
 </blockquote>
 <a id="more"></a>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>Pytorch学习笔记系列将从下面几章和大家分享学习笔记：</p>
+<p><a href="https://liyang619.github.io/2151503784.html">第一章 初识Pytorch-一窥lenet5</a></p>
+<p><a href="https://liyang619.github.io/2955656048.html">第二章 Lenet5初实现</a></p>
+<p><a href="https://liyang619.github.io/4098518920.html">第三章 Pytorch进阶学习实现ResNet</a></p>
 <h1 id="数据集的读取"><a href="#数据集的读取" class="headerlink" title="数据集的读取"></a>数据集的读取</h1><blockquote>
 <p>为了更好的学习pytorch，在这里mnist的读取采用自定义数据源的读取。创建一个read_data.py文件，用以加载mnist数据。</p>
 </blockquote>
@@ -498,11 +502,11 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2955656048.html">Pytorch教程-第二回[Lenet5 pytorch初实现]</a></p>
+  <p><span>本文标题:</span><a href="/2955656048.html">Pytorch学习笔记-第二回[Lenet5 pytorch初实现]</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 李阿 的个人博客">李阿</a></p>
   <p><span>发布时间:</span>2019年05月31日 - 14:53</p>
-  <p><span>最后更新:</span>2019年06月03日 - 11:36</p>
-  <p><span>原始链接:</span><a href="/2955656048.html" title="Pytorch教程-第二回[Lenet5 pytorch初实现]">http://liyang619.github.io/2955656048.html</a>
+  <p><span>最后更新:</span>2019年06月03日 - 15:57</p>
+  <p><span>原始链接:</span><a href="/2955656048.html" title="Pytorch学习笔记-第二回[Lenet5 pytorch初实现]">http://liyang619.github.io/2955656048.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://liyang619.github.io/2955656048.html" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
@@ -584,8 +588,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2151503784.html" rel="next" title="Pytorch教程-第一回[初识Pytorch-一窥lenet5]">
-                <i class="fa fa-chevron-left"></i> Pytorch教程-第一回[初识Pytorch-一窥lenet5]
+              <a href="/2151503784.html" rel="next" title="Pytorch学习笔记-第一回[初识Pytorch-一窥lenet5]">
+                <i class="fa fa-chevron-left"></i> Pytorch学习笔记-第一回[初识Pytorch-一窥lenet5]
               </a>
             
           </div>
@@ -733,7 +737,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据集的读取"><span class="nav-number">2.</span> <span class="nav-text">数据集的读取</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模型定义"><span class="nav-number">3.</span> <span class="nav-text">模型定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#训练和测试"><span class="nav-number">4.</span> <span class="nav-text">训练和测试</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目录"><span class="nav-number">2.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据集的读取"><span class="nav-number">3.</span> <span class="nav-text">数据集的读取</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模型定义"><span class="nav-number">4.</span> <span class="nav-text">模型定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#训练和测试"><span class="nav-number">5.</span> <span class="nav-text">训练和测试</span></a></li></ol></div>
             
 
           </div>
