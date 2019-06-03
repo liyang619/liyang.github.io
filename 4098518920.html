@@ -97,18 +97,18 @@
 
 
 
-<meta name="description" content="写在前面 李阿将在这一章中讲解Lenet5的简易版具体实现pytorch实现和训练过程。将在下一回学习高级版实现，即自定义数据集的训练，模型保存加载，可视化等功能。">
+<meta name="description" content="一个没有爱的程序员">
 <meta name="keywords" content="Pytorch">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pytorch教程-第二回">
-<meta property="og:url" content="http://liyang619.github.io/post/[20190531]Pytorch教程-第二回/index.html">
+<meta property="og:title" content="Pytorch学习笔记-第三回[pytorch进阶学习resnet实现]">
+<meta property="og:url" content="http://liyang619.github.io/4098518920.html">
 <meta property="og:site_name" content="李阿的Home">
-<meta property="og:description" content="写在前面 李阿将在这一章中讲解Lenet5的简易版具体实现pytorch实现和训练过程。将在下一回学习高级版实现，即自定义数据集的训练，模型保存加载，可视化等功能。">
+<meta property="og:description" content="一个没有爱的程序员">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-01T14:53:50.817Z">
+<meta property="og:updated_time" content="2019-06-03T07:43:01.444Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pytorch教程-第二回">
-<meta name="twitter:description" content="写在前面 李阿将在这一章中讲解Lenet5的简易版具体实现pytorch实现和训练过程。将在下一回学习高级版实现，即自定义数据集的训练，模型保存加载，可视化等功能。">
+<meta name="twitter:title" content="Pytorch学习笔记-第三回[pytorch进阶学习resnet实现]">
+<meta name="twitter:description" content="一个没有爱的程序员">
 
 
 
@@ -138,14 +138,14 @@
 
 
 
-  <link rel="canonical" href="http://liyang619.github.io/post/[20190531]Pytorch教程-第二回/">
+  <link rel="canonical" href="http://liyang619.github.io/4098518920.html">
 
 
 
 
 
 
-  <title>Pytorch教程-第二回 | 李阿的Home</title>
+  <title>Pytorch学习笔记-第三回[pytorch进阶学习resnet实现] | 李阿的Home</title>
   
 
 
@@ -304,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liyang619.github.io/post/[20190531]Pytorch教程-第二回/">
+    <link itemprop="mainEntityOfPage" href="http://liyang619.github.io/4098518920.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李阿">
@@ -321,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Pytorch教程-第二回</h1>
+          <h1 class="post-title" itemprop="name headline">Pytorch学习笔记-第三回[pytorch进阶学习resnet实现]</h1>
         
 
         <div class="post-meta">
@@ -333,8 +333,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-31T14:53:16+08:00">
-                2019-05-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-03T11:32:33+08:00">
+                2019-06-03
               </time>
             
 
@@ -385,8 +385,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/post/[20190531]Pytorch教程-第二回/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/post/[20190531]Pytorch教程-第二回/" itemprop="commentCount"></span>
+                <a href="/4098518920.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/4098518920.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.5k 字
+                  0 字
                 </span>
               
 
@@ -429,7 +429,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7 分钟
+                  1 分钟
                 </span>
               
             </div>
@@ -450,40 +450,7 @@
       
 
       
-        <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a><center>写在前面</center></h1><blockquote>
-<p>李阿将在这一章中讲解Lenet5的<em>简易版具体实现pytorch实现和训练过程</em>。将在下一回学习高级版实现，即自定义数据集的训练，模型保存加载，可视化等功能。</p>
-</blockquote>
-<a id="more"></a>
-<h1 id="数据集的读取"><a href="#数据集的读取" class="headerlink" title="数据集的读取"></a>数据集的读取</h1><blockquote>
-<p>为了更好的学习pytorch，在这里mnist的读取采用自定义数据源的读取。创建一个read_data.py文件，用以加载mnist数据。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import gzip, struct</span><br><span class="line">import numpy as np</span><br><span class="line"># gzip为python的一个解压缩的库函数，struct为一个数据处理的库</span><br><span class="line">def _read(image, label):</span><br><span class="line">    mnist_dir = &quot;./data/&quot;</span><br><span class="line">    with gzip.open(mnist_dir + label) as flbl:</span><br><span class="line">        magic, num = struct.unpack(&quot;&gt;II&quot;, flbl.read(8))</span><br><span class="line">        label = np.fromstring(flbl.read(), dtype=np.int8)</span><br><span class="line">    with gzip.open(mnist_dir + image, &apos;rb&apos;) as fimg:</span><br><span class="line">        magic, num, rows, cols = struct.unpack(&quot;&gt;IIII&quot;, fimg.read(16))</span><br><span class="line">        image = np.fromstring(fimg.read(), dtype=np.uint8).reshape(len(label), rows, cols)</span><br><span class="line">    return image,label</span><br><span class="line"></span><br><span class="line">def get_data():</span><br><span class="line">    train_img,train_label = _read(</span><br><span class="line">           &apos;train-images-idx3-ubyte.gz&apos;, </span><br><span class="line">           &apos;train-labels-idx1-ubyte.gz&apos;)</span><br><span class="line">    test_img,test_label = _read(</span><br><span class="line">           &apos;t10k-images-idx3-ubyte.gz&apos;, </span><br><span class="line">           &apos;t10k-labels-idx1-ubyte.gz&apos;)</span><br><span class="line">    return [train_img,train_label,test_img,test_label]</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>接下来就是使用pytorch实现LeNet部分。也就是我们第一回所学习的。直接copy过来。</p>
-</blockquote>
-<h1 id="模型定义"><a href="#模型定义" class="headerlink" title="模型定义"></a>模型定义</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import torch.nn as nn</span><br><span class="line">from torch.nn import functional as F</span><br><span class="line"></span><br><span class="line">class LeNet5(nn.Module):</span><br><span class="line">   def __init__(self):</span><br><span class="line">       super().__init__()</span><br><span class="line">       self.conv1 = nn.Conv2d(1, 6, 5, padding=2)</span><br><span class="line">       self.conv2 = nn.Conv2d(6, 16, 5)</span><br><span class="line">       self.fc1 = nn.Linear(16*5*5, 120)</span><br><span class="line">       self.fc2 = nn.Linear(120, 84)</span><br><span class="line">       self.fc3 = nn.Linear(84, 10)</span><br><span class="line">   def forward(self, x):</span><br><span class="line">       x = F.max_pool2d(F.relu(self.conv1(x)), (2, 2))</span><br><span class="line">       x = F.max_pool2d(F.relu(self.conv2(x)), (2, 2))</span><br><span class="line">       x = x.view(-1, self.num_flat_features(x))</span><br><span class="line">       x = F.relu(self.fc1(x))</span><br><span class="line">       x = F.relu(self.fc2(x))</span><br><span class="line">       x = self.fc3(x)</span><br><span class="line">       return x</span><br><span class="line">   def num_flat_features(self, x):</span><br><span class="line">       size = x.size()[1:]</span><br><span class="line">       num_features = 1</span><br><span class="line">       for s in size:</span><br><span class="line">           num_features *= s</span><br><span class="line">       return num_features</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>接下来就是主要部分了，训练和测试。</p>
-</blockquote>
-<h1 id="训练和测试"><a href="#训练和测试" class="headerlink" title="训练和测试"></a>训练和测试</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import torch.nn as nn</span><br><span class="line">from torch.utils.data import TensorDataset, DataLoader</span><br><span class="line">from torchvision import transforms</span><br><span class="line">from read_data import get_data</span><br><span class="line">from torch.autograd import Variable</span><br><span class="line">from model import LeNet5</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">TensorDataset包转数据和目标张量的数据集，通过第一个维度索引两个张量来恢复每个样本。class torch.utils.data.TensorDataset(data_tensor, target_tensor)</span><br><span class="line">DataLoader数据加载器，组合数据集和采样器，并在数据集上提供单进程或者多进程迭代器。</span><br><span class="line">class torch.utils.data.DataLoader(dataset, batch_size=1, shuffle=False, sampler=None, num_workers=0, collate_fn=&lt;function default_collate&gt;, pin_memory=False, drop_last=False)</span><br><span class="line">个别参数解释：</span><br><span class="line">sampler定义从数据集中提取样本的策略，如果指定，则忽略shffle参数。</span><br><span class="line">num_workers：用多少个子进程加载数据，0表示数据将在主进程中加载</span><br><span class="line">pin_memory:是否将tensor数据复制到CUDA pinned memory中，pin memory中的数据转到GPU中会快一些</span><br><span class="line">collate_fn:把一组samples打包成一个mini-batch的函数，可以自定义这个函数以处理损害数据的情况（先在__getitem__函数中将这样的数据返回None，然后再在collate_fn中处理，如丢掉损坏数据or再从数据集里随机挑一张）</span><br><span class="line">drop_last：数据集不能整除batch size时候，是不是把其丢掉</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">torchvision是独立于pytorch的关于图像操作的一些方便工具库</span><br><span class="line">主要有以下几个包：</span><br><span class="line">vision.datasets : 几个常用视觉数据集，可以下载和加载，这里主要的高级用法就是可以看源码如何自己写自己的Dataset的子类</span><br><span class="line">vision.models : 流行的模型，例如 AlexNet, VGG, ResNet 和 Densenet 以及 与训练好的参数。</span><br><span class="line">vision.transforms : 常用的图像操作，例如：随机切割，旋转，数据类型转换，图像到tensor ,numpy 数组到tensor , tensor 到 图像等。</span><br><span class="line">vision.utils : 用于把形似 (3 x H x W) 的张量保存到硬盘中，给一个mini-batch的图像可以产生一个图像格网。</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line">use_gpu = torch.cuda.is_available()</span><br><span class="line">batch_size = 256</span><br><span class="line">kwargs = &#123;&apos;num_workers&apos;: 2, &apos;pin_memory&apos;: True&#125; if use_gpu else &#123;&#125;</span><br><span class="line">#数据集加载</span><br><span class="line">X, y, Xt, yt = get_data()</span><br><span class="line">train_x, train_y = torch.from_numpy(X.reshape(-1, 1, 28, 28)).float(), torch.from_numpy(y.astype(int))</span><br><span class="line">test_x, test_y = [</span><br><span class="line">    torch.from_numpy(Xt.reshape(-1, 1, 28, 28)).float(),</span><br><span class="line">    torch.from_numpy(yt.astype(int))</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">train_dataset = TensorDataset(train_x, train_y)</span><br><span class="line">test_dataset = TensorDataset(test_x, test_y)</span><br><span class="line"></span><br><span class="line">train_loader = DataLoader(dataset=train_dataset, shuffle=True, batch_size=batch_size, **kwargs)</span><br><span class="line">test_loader = DataLoader(dataset=test_dataset, shuffle=True, batch_size=batch_size, **kwargs)</span><br><span class="line"></span><br><span class="line">model = LeNet5()</span><br><span class="line">if use_gpu:</span><br><span class="line">    model = model.cuda()</span><br><span class="line">    #将所有模型参数复制到Gpu</span><br><span class="line">    print(&apos;USE GPU&apos;)</span><br><span class="line">else:</span><br><span class="line">    print(&apos;USE CPU&apos;)</span><br><span class="line">criterion = nn.CrossEntropyLoss(size_average=False)</span><br><span class="line">optimizer = torch.optim.Adam(model.parameters(), lr=1e-3, betas=(0.9, 0.99))</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>在上面的代码中用到了model.cuda，是这torch.nn.module的一个函数，module是所有网络的基类，实际意义代表一层或者多层的网络。下面继续码代码：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def weight_init(m): #定义权重初始化函数</span><br><span class="line">    if isinstance(m, nn.Conv2d):</span><br><span class="line">        import math</span><br><span class="line">        n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels</span><br><span class="line">        m.weight.data.normal_(0, math.sqrt(2./n))</span><br><span class="line">    elif isinstance(m, nn.BatchNorm2d):</span><br><span class="line">        m.weight.data.fill_(1)</span><br><span class="line">        m.bias.data.zero_()</span><br><span class="line">      </span><br><span class="line">model.apply(weight_init)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<lable style="color:red">网络搭建好了，数据读取已经定义好了，参数已经初始化，就等训练啦！！！</lable>
-
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">def train(epoch):</span><br><span class="line">    model.train() #将module设置为训练模式，对dropout和bn产生影响</span><br><span class="line">    for batch_idx, (data, target) in enumerate(train_loader):</span><br><span class="line">        if use_gpu:</span><br><span class="line">            data, target = data.cuda(), target.cuda()</span><br><span class="line">        #将数据转到GPU上</span><br><span class="line">        data, target = Variable(data), Variable(target)</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        output = model(data)</span><br><span class="line">        loss = criterion(output, target)</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        if batch_idx % 100 == 0:</span><br><span class="line">            print(&apos;Train Epoch: &#123;&#125; [&#123;&#125;/&#123;&#125; (&#123;:.0f&#125;%)]\tLoss: &#123;:.6f&#125;&apos;.format(epoch, batch_idx * len(data), len(train_loader.dataset),100. * batch_idx / len(train_loader), loss.data))</span><br><span class="line">       </span><br><span class="line">def test():</span><br><span class="line">    model.eval()</span><br><span class="line">    test_loss = 0</span><br><span class="line">    correct = 0</span><br><span class="line">    for data, target in test_loader:</span><br><span class="line">        if use_gpu:</span><br><span class="line">            data, target = data.cuda(), target.cuda()</span><br><span class="line">        data, target = Variable(data, volatile=True), Variable(target)</span><br><span class="line">        output = model(data) </span><br><span class="line">        </span><br><span class="line">        test_loss += criterion(output, target).data</span><br><span class="line">        </span><br><span class="line">        pred = output.data.max(1, keepdim=True)[1]</span><br><span class="line">        #返回第一维中每行最大值和索引，keepdim=True表示输出张量除了被操作的dim维度值为1其他不变</span><br><span class="line">        correct += pred.eq(target.data.view_as(pred)).cpu().sum()</span><br><span class="line">    test_loss /= len(test_loader.dataset)</span><br><span class="line">    print(&apos;\nTest set: Average loss: &#123;:.4f&#125;, Accuracy: &#123;&#125;/&#123;&#125; (&#123;:.2f&#125;%)\n&apos;.format(</span><br><span class="line">        test_loss, correct, len(test_loader.dataset),</span><br><span class="line">        100. * correct / len(test_loader.dataset)))</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>所有的一切已经定义就绪，接下来就是运行：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for epoch in range(1, 501):</span><br><span class="line">   train(epoch)</span><br><span class="line">   test()</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>至此已经学习完简易版的lenet5的pytorch实现了，接下来一回将讲解高级版，包括自定义数据集训练，模型保存加载，可视化等功能。</p>
-<p>再次特意感谢<a href="https://zhuanlan.zhihu.com/p/29716516" target="_blank" rel="noopener">知乎战歌指挥官文章</a>，本文参考自其文章。<a href="https://github.com/liyang619/pytorchLenetSimple" target="_blank" rel="noopener">代码见李阿的github</a></p>
-</blockquote>
-
+        
       
     </div>
     
@@ -498,12 +465,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/post/[20190531]Pytorch教程-第二回/">Pytorch教程-第二回</a></p>
+  <p><span>本文标题:</span><a href="/4098518920.html">Pytorch学习笔记-第三回[pytorch进阶学习resnet实现]</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 李阿 的个人博客">李阿</a></p>
-  <p><span>发布时间:</span>2019年05月31日 - 14:53</p>
-  <p><span>最后更新:</span>2019年06月01日 - 22:53</p>
-  <p><span>原始链接:</span><a href="/post/[20190531]Pytorch教程-第二回/" title="Pytorch教程-第二回">http://liyang619.github.io/post/[20190531]Pytorch教程-第二回/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://liyang619.github.io/post/[20190531]Pytorch教程-第二回/" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年06月03日 - 11:32</p>
+  <p><span>最后更新:</span>2019年06月03日 - 15:43</p>
+  <p><span>原始链接:</span><a href="/4098518920.html" title="Pytorch学习笔记-第三回[pytorch进阶学习resnet实现]">http://liyang619.github.io/4098518920.html</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://liyang619.github.io/4098518920.html" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -584,8 +551,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/post/[20190530]Pytorch教程-第一回/" rel="next" title="Pytorch教程-第一回">
-                <i class="fa fa-chevron-left"></i> Pytorch教程-第一回
+              <a href="/2955656048.html" rel="next" title="Pytorch教程-第二回[Lenet5 pytorch初实现]">
+                <i class="fa fa-chevron-left"></i> Pytorch教程-第二回[Lenet5 pytorch初实现]
               </a>
             
           </div>
@@ -647,17 +614,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -674,7 +632,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -720,22 +678,6 @@
       </section>
 
       
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据集的读取"><span class="nav-number">2.</span> <span class="nav-text">数据集的读取</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模型定义"><span class="nav-number">3.</span> <span class="nav-text">模型定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#训练和测试"><span class="nav-number">4.</span> <span class="nav-text">训练和测试</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
 
       
         <div class="back-to-top">
@@ -756,7 +698,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019-06-01</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019-06-03</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

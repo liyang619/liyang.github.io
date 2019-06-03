@@ -100,17 +100,17 @@
 <meta name="description" content="写在前面 李阿将在这一系列文章中和大家一起从头学习Pytorch。和别的教程开始先简介一些基本的tensor之类的基础定义不同的是，李阿将直接从LeNet5实现开始讲解，在基本定义穿插在LeNet5实现中，之后在介绍基本知识，然后以一进阶的网络实现结束Pytorch的学习。">
 <meta name="keywords" content="Pytorch">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pytorch教程-第一回">
-<meta property="og:url" content="http://liyang619.github.io/post/[20190530]Pytorch教程-第一回/index.html">
+<meta property="og:title" content="Pytorch教程-第一回[初识Pytorch-一窥lenet5]">
+<meta property="og:url" content="http://liyang619.github.io/2151503784.html">
 <meta property="og:site_name" content="李阿的Home">
 <meta property="og:description" content="写在前面 李阿将在这一系列文章中和大家一起从头学习Pytorch。和别的教程开始先简介一些基本的tensor之类的基础定义不同的是，李阿将直接从LeNet5实现开始讲解，在基本定义穿插在LeNet5实现中，之后在介绍基本知识，然后以一进阶的网络实现结束Pytorch的学习。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://liyang619.github.io/post/[20190530]Pytorch教程-第一回/LeNet5.jpg">
-<meta property="og:updated_time" content="2019-05-31T13:23:03.009Z">
+<meta property="og:image" content="http://liyang619.github.io/2151503784/LeNet5.jpg">
+<meta property="og:updated_time" content="2019-06-03T07:42:27.426Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pytorch教程-第一回">
+<meta name="twitter:title" content="Pytorch教程-第一回[初识Pytorch-一窥lenet5]">
 <meta name="twitter:description" content="写在前面 李阿将在这一系列文章中和大家一起从头学习Pytorch。和别的教程开始先简介一些基本的tensor之类的基础定义不同的是，李阿将直接从LeNet5实现开始讲解，在基本定义穿插在LeNet5实现中，之后在介绍基本知识，然后以一进阶的网络实现结束Pytorch的学习。">
-<meta name="twitter:image" content="http://liyang619.github.io/post/[20190530]Pytorch教程-第一回/LeNet5.jpg">
+<meta name="twitter:image" content="http://liyang619.github.io/2151503784/LeNet5.jpg">
 
 
 
@@ -140,14 +140,14 @@
 
 
 
-  <link rel="canonical" href="http://liyang619.github.io/post/[20190530]Pytorch教程-第一回/">
+  <link rel="canonical" href="http://liyang619.github.io/2151503784.html">
 
 
 
 
 
 
-  <title>Pytorch教程-第一回 | 李阿的Home</title>
+  <title>Pytorch教程-第一回[初识Pytorch-一窥lenet5] | 李阿的Home</title>
   
 
 
@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liyang619.github.io/post/[20190530]Pytorch教程-第一回/">
+    <link itemprop="mainEntityOfPage" href="http://liyang619.github.io/2151503784.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李阿">
@@ -323,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Pytorch教程-第一回</h1>
+          <h1 class="post-title" itemprop="name headline">Pytorch教程-第一回[初识Pytorch-一窥lenet5]</h1>
         
 
         <div class="post-meta">
@@ -387,8 +387,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/post/[20190530]Pytorch教程-第一回/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/post/[20190530]Pytorch教程-第一回/" itemprop="commentCount"></span>
+                <a href="/2151503784.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2151503784.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -456,8 +456,8 @@
 <p>李阿将在这一系列文章中和大家一起从头学习Pytorch。和别的教程开始先简介一些基本的tensor之类的基础定义不同的是，李阿将直接从LeNet5实现开始讲解，在基本定义穿插在LeNet5实现中，之后在介绍基本知识，然后以一进阶的网络实现结束Pytorch的学习。</p>
 </blockquote>
 <a id="more"></a>
-<p>不知道大家有没有接触过LeNet5网络,就当大家已经知晓LeNet5了吧？不如是小白，请百度之后再回来。</p>
-<img src="/post/[20190530]Pytorch教程-第一回/LeNet5.jpg" title="LeNet5网络结构图">
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>不知道大家有没有接触过LeNet5网络,就当大家已经知晓LeNet5了吧？不如是小白，请百度之后再回来。</p>
+<img src="/2151503784/LeNet5.jpg" title="LeNet5网络结构图">
 <h1 id="Forward-的建立"><a href="#Forward-的建立" class="headerlink" title="Forward 的建立"></a>Forward 的建立</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"><span class="comment">#Torch.nn.functional中定义了卷积等等很多的操作</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Net</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">  <span class="comment"># nn.Module是所有神经网络的父类</span></span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init_</span><span class="params">(self)</span>:</span></span><br><span class="line">    super(Net, self).__init__()</span><br><span class="line">    self.conv1 = nn.Conv2d(<span class="number">1</span>, <span class="number">6</span>, <span class="number">5</span>)</span><br><span class="line">    self.conv2 = nn.Conv2d(<span class="number">6</span>, <span class="number">16</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>&emsp;&emsp;在这里定义了一个卷积层，输入channel为1，输出channels为6，卷积核大小为5<em>5。函数定义为：<em>*torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride = 1,padding=0, dilation=1, groups=1, bias=True)</em></em><br>&emsp;&emsp;其中：in_channels:输入通道数，out_channels:输出通道数，kernel_size:卷积核尺寸，stride：步长，padding:输入数据各个维度各个边要补齐的层数，dilation：卷积核各元素之间的距离，group：输入通道和输出通道之间相互隔离的连接的个数，bias：如果被置为True，向输出增加一个偏差量，此偏差是可以学习的参数。<br>&emsp;&emsp;重点解释下group参数的含义，group必须同时被in_channels and out_channels整除，表示控制了输入输出之间的连接数量。<br>&emsp;&emsp;conv2d的卷积核size为[out_channels, in_channels, kernel_size, kernel_size]<br>&emsp;&emsp;conv = nn.Conv2d(in_channels=6, out_channels=6, kernel_size=1, groups=1)<br>&emsp;&emsp;conv.weight.data.size()<br>&emsp;&emsp;得到的输出结果为torch.Size([6, 6, 1, 1])<br>&emsp;&emsp;而当其中group参数分别为2，3，6时输出结构为：<br>&emsp;&emsp;torch.Size([6,3,1,1])<br>&emsp;&emsp;torch.Size([6,2,1,1])<br>&emsp;&emsp;torch.Size([6,1,1,1])<br>&emsp;&emsp;当group=1的时候,卷积核为[6,6,1,1]，即对于每一个特征图[6, $H_{in}$,$W_{in}$]乘以[6，1，1]的卷积核得到[1, $H_{out}$, $W_{out}$]，经过6次这样的计算得到6个特征图。</p>
@@ -499,12 +499,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/post/[20190530]Pytorch教程-第一回/">Pytorch教程-第一回</a></p>
+  <p><span>本文标题:</span><a href="/2151503784.html">Pytorch教程-第一回[初识Pytorch-一窥lenet5]</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 李阿 的个人博客">李阿</a></p>
   <p><span>发布时间:</span>2019年05月30日 - 14:05</p>
-  <p><span>最后更新:</span>2019年05月31日 - 21:23</p>
-  <p><span>原始链接:</span><a href="/post/[20190530]Pytorch教程-第一回/" title="Pytorch教程-第一回">http://liyang619.github.io/post/[20190530]Pytorch教程-第一回/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://liyang619.github.io/post/[20190530]Pytorch教程-第一回/" aria-label="复制成功！"></i></span>
+  <p><span>最后更新:</span>2019年06月03日 - 15:42</p>
+  <p><span>原始链接:</span><a href="/2151503784.html" title="Pytorch教程-第一回[初识Pytorch-一窥lenet5]">http://liyang619.github.io/2151503784.html</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://liyang619.github.io/2151503784.html" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -585,7 +585,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/post/[20190525]论文笔记-LoopyNeuralNetaImitatingFeedbackLoopsInTheHumanBrain/" rel="next" title="论文笔记-LoopyNeuralNetaImitatingFeedbackLoopsInTheHumanBrain">
+              <a href="/4013977215.html" rel="next" title="论文笔记-LoopyNeuralNetaImitatingFeedbackLoopsInTheHumanBrain">
                 <i class="fa fa-chevron-left"></i> 论文笔记-LoopyNeuralNetaImitatingFeedbackLoopsInTheHumanBrain
               </a>
             
@@ -595,8 +595,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/post/[20190531]Pytorch教程-第二回/" rel="prev" title="Pytorch教程-第二回">
-                Pytorch教程-第二回 <i class="fa fa-chevron-right"></i>
+              <a href="/2955656048.html" rel="prev" title="Pytorch教程-第二回[Lenet5 pytorch初实现]">
+                Pytorch教程-第二回[Lenet5 pytorch初实现] <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -679,7 +679,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -734,7 +734,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Forward-的建立"><span class="nav-number">2.</span> <span class="nav-text">Forward 的建立</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#损失函数"><span class="nav-number">3.</span> <span class="nav-text">损失函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#反向传播"><span class="nav-number">4.</span> <span class="nav-text">反向传播</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目录"><span class="nav-number">2.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Forward-的建立"><span class="nav-number">3.</span> <span class="nav-text">Forward 的建立</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#损失函数"><span class="nav-number">4.</span> <span class="nav-text">损失函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#反向传播"><span class="nav-number">5.</span> <span class="nav-text">反向传播</span></a></li></ol></div>
             
 
           </div>
@@ -761,7 +761,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019-06-01</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019-06-03</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
