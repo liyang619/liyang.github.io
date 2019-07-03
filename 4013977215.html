@@ -100,15 +100,15 @@
 <meta name="description" content="写在前面这篇论文笔记将以翻译加上李阿的个人注解的形式进行。因本人水平有限，难免会有地方遗漏或者错误，请大家发现后积极评论或者点击右下角按钮与李阿实时交流。">
 <meta name="keywords" content="论文笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="论文笔记-LoopyNeuralNetaImitatingFeedbackLoopsInTheHumanBrain">
+<meta property="og:title" content="论文笔记[LoopyNeuralNetaImitatingFeedbackLoopsInTheHumanBrain]">
 <meta property="og:url" content="http://liyang619.github.io/4013977215.html">
 <meta property="og:site_name" content="李阿的Home">
 <meta property="og:description" content="写在前面这篇论文笔记将以翻译加上李阿的个人注解的形式进行。因本人水平有限，难免会有地方遗漏或者错误，请大家发现后积极评论或者点击右下角按钮与李阿实时交流。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://liyang619.github.io/4013977215/figure01.png">
-<meta property="og:updated_time" content="2019-06-03T03:38:49.694Z">
+<meta property="og:updated_time" content="2019-07-03T03:15:57.485Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="论文笔记-LoopyNeuralNetaImitatingFeedbackLoopsInTheHumanBrain">
+<meta name="twitter:title" content="论文笔记[LoopyNeuralNetaImitatingFeedbackLoopsInTheHumanBrain]">
 <meta name="twitter:description" content="写在前面这篇论文笔记将以翻译加上李阿的个人注解的形式进行。因本人水平有限，难免会有地方遗漏或者错误，请大家发现后积极评论或者点击右下角按钮与李阿实时交流。">
 <meta name="twitter:image" content="http://liyang619.github.io/4013977215/figure01.png">
 
@@ -147,7 +147,7 @@
 
 
 
-  <title>论文笔记-LoopyNeuralNetaImitatingFeedbackLoopsInTheHumanBrain | 李阿的Home</title>
+  <title>论文笔记[LoopyNeuralNetaImitatingFeedbackLoopsInTheHumanBrain] | 李阿的Home</title>
   
 
 
@@ -323,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">论文笔记-LoopyNeuralNetaImitatingFeedbackLoopsInTheHumanBrain</h1>
+          <h1 class="post-title" itemprop="name headline">论文笔记[LoopyNeuralNetaImitatingFeedbackLoopsInTheHumanBrain]</h1>
         
 
         <div class="post-meta">
@@ -485,9 +485,7 @@
 <li><strong>坚实的表现</strong>当展开数次后，即使一个浅的网络能够装配一个深度神经网络，但展开的神经 网络使用远远更少的参数当与同样深度的神经网络相比时。尽管参数数量的存在差异，仍希望两个网络都能提供相似的表达能力。如果这被发现时对的，LNNs能等效为复杂、深层网络坚实表现。</li>
 </ul>
 <p>训练一个LNN十分相似于训练一个普通的神经网络。当LNN被 展开之后，前行传播就像标准的方式。后向传播也能以标准的方式在展开的LNN上去做。然而，因为在展开网络中各个层之间共享参数，梯度需要被不同地更新。比如，在图一中，我们将在每一个展开层中将每一层视为不同层，并像往常一样执行后向传播。然而，真实的梯度$W_1$将是每一层中梯度$W_1$的和。用公式表达：</p>
-<center>$dW_i=\sum\limits_{j=1}^kdW_{i,j}$</center>
-
-<p>其中$dW_i$是层$W_i$的梯度，$dW_{i,j}$表示$W_i$第j个展开的梯度。</p>
+<p><center>$dW_i=\sum\limits_{j=1}^kdW_{i,j}$</center><br>其中$dW_i$是层$W_i$的梯度，$dW_{i,j}$表示$W_i$第j个展开的梯度。</p>
 <h2 id="2-结构"><a href="#2-结构" class="headerlink" title="2.结构"></a>2.结构</h2><p>我们基于Lasagne写了一个库，这个库允许我们去在配置文件中实现这些层的细节，循环设置和相关的超参数，我们在展开的例子中完成层的重复是通过在loopy模型中相同层的权重一致来实现的，这在同样的Theano分享变量给所有展开层是一样简单传递的。</p>
 </blockquote>
 <lable style="color=red">论文在下面的部分介绍了数据集、相关工作、具体实验模型细节、结果和讨论，需要的可以看原文</lable>
@@ -507,11 +505,11 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/4013977215.html">论文笔记-LoopyNeuralNetaImitatingFeedbackLoopsInTheHumanBrain</a></p>
+  <p><span>本文标题:</span><a href="/4013977215.html">论文笔记[LoopyNeuralNetaImitatingFeedbackLoopsInTheHumanBrain]</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 李阿 的个人博客">李阿</a></p>
   <p><span>发布时间:</span>2019年05月25日 - 22:13</p>
-  <p><span>最后更新:</span>2019年06月03日 - 11:38</p>
-  <p><span>原始链接:</span><a href="/4013977215.html" title="论文笔记-LoopyNeuralNetaImitatingFeedbackLoopsInTheHumanBrain">http://liyang619.github.io/4013977215.html</a>
+  <p><span>最后更新:</span>2019年07月03日 - 11:15</p>
+  <p><span>原始链接:</span><a href="/4013977215.html" title="论文笔记[LoopyNeuralNetaImitatingFeedbackLoopsInTheHumanBrain]">http://liyang619.github.io/4013977215.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://liyang619.github.io/4013977215.html" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
@@ -687,7 +685,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -769,7 +767,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019-06-03</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019-07-03</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
